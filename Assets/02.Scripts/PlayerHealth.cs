@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHP = 5;
+    public int maxHP = 100;
     public int currentHP;
-
-    public Slider healthSlider; // 👉 슬라이더 연결용
+    public Slider healthSlider;
 
     void Start()
     {
         currentHP = maxHP;
+
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHP;
@@ -35,8 +35,6 @@ public class PlayerHealth : MonoBehaviour
         if (currentHP <= 0)
         {
             Debug.Log("플레이어 사망!");
-            // 게임 오버 처리 가능
         }
     }
 }
-

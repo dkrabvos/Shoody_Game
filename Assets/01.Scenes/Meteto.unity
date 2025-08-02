@@ -702,8 +702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f80bda63185459f96e47351e41b011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  destroyDistance: 0.3
 --- !u!114 &1341764220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,9 +714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b07cc7a6d004723806435b731fb03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
-  currentHP: 0
-  healthSlider: {fileID: 0}
 --- !u!1 &1504073822
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +760,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1648019049}
   - component: {fileID: 1648019048}
-  - component: {fileID: 1648019047}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -773,14 +767,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1648019047
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648019046}
-  m_Enabled: 1
 --- !u!20 &1648019048
 Camera:
   m_ObjectHideFlags: 0
