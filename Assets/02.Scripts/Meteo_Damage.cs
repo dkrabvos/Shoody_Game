@@ -15,8 +15,8 @@ public class Meteo_Damage : MonoBehaviour
     private float damageTimer = 0f;
 
     [Header("Special Settings")]
-    public bool isGiant = false;  //  嫄곕 댁 щ
-    public ParticleSystem destroyEffect;  //  愿 댄
+    public bool isGiant = false;  //  
+    public ParticleSystem destroyEffect;  // 
 
     void Start()
 {
@@ -44,7 +44,7 @@ public class Meteo_Damage : MonoBehaviour
     {
         hp -= amount;
 
-        if (isGiant) Debug.Log(" 泥대: " + hp);
+        
         if (hp <= 0f)
         {
             Die();
@@ -74,7 +74,7 @@ public class Meteo_Damage : MonoBehaviour
     if (isGiant)
     {
 
-        //  移대 ㅺ린
+        
         if (CameraShake.Instance != null)
             StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
     
@@ -118,18 +118,7 @@ void ResetTimeScale()
         }
     }
 
-    public void TakeDirectDamage(float amount)
-    {
-        hp -= amount;
-        Debug.Log($"{gameObject.name} cursed! HP: {hp}");
-
-        if (hp <= 0f)
-        {
-            
-
-            Die();
-        }
-    }
+    
 
    
 }
