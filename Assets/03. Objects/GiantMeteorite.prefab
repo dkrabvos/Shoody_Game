@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 7443513048266134065}
   m_Layer: 0
   m_Name: GiantMeteorite
-  m_TagString: Untagged
+  m_TagString: Meteo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,6 +479,7 @@ MonoBehaviour:
   hp: 100
   damagePerSecond: 10
   isInSunLight: 0
+  damageTimer: 0
   isGiant: 1
   destroyEffect: {fileID: 9057719025938598539, guid: 51d3da1f5e459407ea26c0b9becdea88, type: 3}
 --- !u!114 &6053972548244844780

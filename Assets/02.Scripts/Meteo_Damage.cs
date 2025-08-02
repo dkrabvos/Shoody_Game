@@ -12,20 +12,19 @@ public class Meteo_Damage : MonoBehaviour
 
     public bool isInSunLight = false;
 
-    private float damageTimer = 0f;
+    public float damageTimer = 0f;
 
     [Header("Special Settings")]
-    public bool isGiant = false;  //  
-    public ParticleSystem destroyEffect;  // 
+    public bool isGiant = false;  
+    public ParticleSystem destroyEffect;
+
+    GameManager manager;
 
     void Start()
-{
-    if (isGiant)
     {
-        hp = 50f;
-        Debug.Log($" 嫄곕 댁 깅 / 泥대: {hp}");
+        if (isGiant) hp = 50f;
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-}
 
     void Update()
     {
@@ -40,85 +39,31 @@ public class Meteo_Damage : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         hp -= amount;
-
-        
-        if (hp <= 0f)
-        {
-            Die();
-        }
-    }
-
-    public void TakeDirectDamage(float amount)
-    {
-        hp -= amount;
-        
-        if (hp <= 0f)
-        {
-            Die();
-        }
+        if (hp <= 0f) Die();
     }
 
     private void Die()
-
-{
-    Debug.Log($"{gameObject.name} destroyed!");
-
-    if (destroyEffect != null)
     {
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
-    }
-
-    if (isGiant)
-    {
-
-        
-        if (CameraShake.Instance != null)
-            StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
-    
-        
-    }
-    else
-    {
-
-        Gauge gm = FindObjectOfType<Gauge>();
-        if (gm != null)
+        if (destroyEffect != null)
         {
-            gm.AddGauge();
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
         }
 
-
-    }
-
-    Destroy(gameObject);
-}
-
-void ResetTimeScale()
-{
-    Time.timeScale = 1f;
-}
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("SunLight"))
+        if (isGiant)
         {
-            isInSunLight = true;
+            if (CameraShake.Instance != null)
+                StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
         }
+        manager.ex += 10;
+
+        Destroy(gameObject);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void ResetTimeScale()
     {
-        if (other.CompareTag("SunLight"))
-        {
-            isInSunLight = false;
-            damageTimer = 0f;
-        }
+        Time.timeScale = 1f;
     }
-
-    
-
-   
 }

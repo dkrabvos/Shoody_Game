@@ -35,7 +35,7 @@ public class CursedPlanet : MonoBehaviour
             Meteo_Damage meteorite = col.GetComponent<Meteo_Damage>();
             if (meteorite != null)
             {
-                meteorite.TakeDirectDamage(damage);
+                meteorite.TakeDamage(damage);
             }
         }
     }

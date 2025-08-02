@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9157077554753550060}
   m_Layer: 0
   m_Name: Lava-PLanet
-  m_TagString: Untagged
+  m_TagString: Meteo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08632584bafe5476fbad255bce679cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackholePlanet: {fileID: 0}
   moveSpeed: 2
   destroyDistance: 0.3
+  isInBlackhole: 0
+  direction: {x: 0, y: 0}
+  final: {x: 0, y: 0}
+  isFreezable: 1
+  freezeEffectPrefab: {fileID: 0}
 --- !u!114 &7016112914511774581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +123,9 @@ MonoBehaviour:
   hp: 1
   damagePerSecond: 1
   isInSunLight: 0
+  damageTimer: 0
+  isGiant: 0
+  destroyEffect: {fileID: 0}
 --- !u!58 &8410470020349861533
 CircleCollider2D:
   m_ObjectHideFlags: 0
