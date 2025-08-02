@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,22 @@ public class Meteo_Damage : MonoBehaviour
 
     public bool isInSunLight = false;
 
+<<<<<<< Updated upstream
     private float damageTimer = 0f;
 
     [Header("Special Settings")]
     public bool isGiant = false;  //  嫄곕 댁 щ
     public ParticleSystem destroyEffect;  //  愿 댄
+=======
+    public float damageTimer = 0f;
+    public Boolean died = false;
+
+    [Header("Special Settings")]
+    public bool isGiant = false;  
+    public GameObject destroyEffect;
+
+    GameManager manager;
+>>>>>>> Stashed changes
 
     void Start()
 {
@@ -43,6 +55,7 @@ public class Meteo_Damage : MonoBehaviour
     private void TakeDamage(float amount)
     {
         hp -= amount;
+<<<<<<< Updated upstream
 
         if (isGiant) Debug.Log(" 泥대: " + hp);
         if (hp <= 0f)
@@ -57,6 +70,11 @@ public class Meteo_Damage : MonoBehaviour
         
         if (hp <= 0f)
         {
+=======
+        if (hp <= 0f)
+        {
+            died = true;
+>>>>>>> Stashed changes
             Die();
         }
     }
@@ -68,7 +86,27 @@ public class Meteo_Damage : MonoBehaviour
 
     if (destroyEffect != null)
     {
+<<<<<<< Updated upstream
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
+=======
+        if (died)
+        {
+            if (destroyEffect != null)
+            {
+                Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            }
+
+            if (isGiant)
+            {
+                if (CameraShake.Instance != null)
+                    StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
+            }
+            manager.ex += 10;
+
+            Destroy(gameObject);
+            died = false;
+        }
+>>>>>>> Stashed changes
     }
 
     if (isGiant)

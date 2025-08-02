@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &91005370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,8 +671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 25
-  electricEffectPrefab: {fileID: 2916859725174022196, guid: b1bfebfed7b884b878e3443d3de876f2, type: 3}
+  splashRadius: 2.5
   cooldown: 1.5
+  electricEffectPrefab: {fileID: 1434558496851398025, guid: b1bfebfed7b884b878e3443d3de876f2, type: 3}
 --- !u!114 &963131983
 MonoBehaviour:
   m_ObjectHideFlags: 0

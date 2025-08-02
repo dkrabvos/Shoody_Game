@@ -479,8 +479,13 @@ MonoBehaviour:
   hp: 100
   damagePerSecond: 10
   isInSunLight: 0
+<<<<<<< Updated upstream
+=======
+  damageTimer: 0
+  died: 0
+>>>>>>> Stashed changes
   isGiant: 1
-  destroyEffect: {fileID: 9057719025938598539, guid: 51d3da1f5e459407ea26c0b9becdea88, type: 3}
+  destroyEffect: {fileID: 3092786660543287021, guid: 51d3da1f5e459407ea26c0b9becdea88, type: 3}
 --- !u!114 &6053972548244844780
 MonoBehaviour:
   m_ObjectHideFlags: 0
