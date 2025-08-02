@@ -23,13 +23,6 @@ public class Meteo_Damage : MonoBehaviour
 
     GameManager manager;
 
-    public float damageTimer = 0f;
-
-    [Header("Special Settings")]
-    public bool isGiant = false;  
-    public ParticleSystem destroyEffect;
-
-    GameManager manager;
 
 
     void Start()
@@ -74,62 +67,25 @@ public class Meteo_Damage : MonoBehaviour
     }
 
     private void Die()
-
-{
-    Debug.Log($"{gameObject.name} destroyed!");
-
-    if (destroyEffect != null)
     {
+        Debug.Log($"{gameObject.name} destroyed!");
 
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
-
-     }
-     if (isGiant)
-            {
-                if (CameraShake.Instance != null)
-                    StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
-            }
-            manager.ex += 10;
-
-            Destroy(gameObject);
-            died = false;
-
-            
-
-
-    }
-
-    if (isGiant)
-    {
-
-        //  移대 ㅺ린
-        if (CameraShake.Instance != null)
-            StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
-    
-        
-    }
-    else
-
-        if (hp <= 0f) Die();
-    }
-
-    private void Die()
-
-    {
         if (destroyEffect != null)
         {
+
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
-        }
 
-        if (isGiant)
-        {
+        }
+         if (isGiant)
+         {
             if (CameraShake.Instance != null)
-                StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
-        }
-        manager.ex += 10;
+            StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
+         }
+          manager.ex += 10;
 
-        Destroy(gameObject);
-    }
+          Destroy(gameObject);
+        died = false;
+     }
 
     void ResetTimeScale()
     {
