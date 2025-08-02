@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8dbbc739f92457a4594a8278a7586ce2
+guid: a8664255f4ab24b61b55eba21376fa3e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - destroyEffect: {fileID: 9057719025938598539, guid: 51d3da1f5e459407ea26c0b9becdea88, type: 3}
+  - giantMeteoritePrefab: {fileID: 6796600402160621353, guid: 3896acce81a6b41798f181c9c54402ed, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
