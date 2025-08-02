@@ -49,6 +49,13 @@ public class Meteo_Damage : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} destroyed!");
         Destroy(gameObject); // 필요에 따라 이펙트나 애니메이션 추가 가능
+
+        Gauge gm = FindObjectOfType<Gauge>();
+        if (gm != null)
+        {
+            gm.AddGauge();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,4 +85,6 @@ public class Meteo_Damage : MonoBehaviour
             Die();
         }
     }
+
+   
 }
