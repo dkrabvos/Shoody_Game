@@ -67,4 +67,15 @@ public class Meteo_Damage : MonoBehaviour
             damageTimer = 0f; // 타이머 초기화
         }
     }
+
+    public void TakeDirectDamage(float amount)
+    {
+        hp -= amount;
+        Debug.Log($"{gameObject.name} cursed! HP: {hp}");
+
+        if (hp <= 0f)
+        {
+            Die();
+        }
+    }
 }
