@@ -10,7 +10,7 @@ public class Meteo_Damage : MonoBehaviour
     [Header("Damage Settings")]
     public float damagePerSecond = 10f;
 
-    private bool isInSunLight = false;
+    public bool isInSunLight = false;
     private float damageTimer = 0f;
 
 
