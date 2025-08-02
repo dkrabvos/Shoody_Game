@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b278c1a5af04d008c776a1a16da511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meteoritePrefab: {fileID: 5797591175601816095, guid: c812d1df5916b844f9dd6a1cd3664011, type: 3}
+  meteoritePrefab: {fileID: 5241053222588945777, guid: e5875e13dcea0b142b0123ecdef5111e, type: 3}
   spawnInterval: 1.5
   spawnRadius: 10
   moveSpeedRange: {x: 2, y: 3}
