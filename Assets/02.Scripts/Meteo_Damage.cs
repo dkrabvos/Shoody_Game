@@ -82,6 +82,8 @@ public class Meteo_Damage : MonoBehaviour
 
         if (hp <= 0f)
         {
+            
+
             Die();
         }
     }
