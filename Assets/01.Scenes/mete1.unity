@@ -375,8 +375,6 @@ GameObject:
   - component: {fileID: 1279483835}
   - component: {fileID: 1279483834}
   - component: {fileID: 1279483833}
-  - component: {fileID: 1279483832}
-  - component: {fileID: 1279483831}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -384,35 +382,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1279483831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279483830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b07cc7a6d004723806435b731fb03c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 5
-  currentHP: 0
-  healthSlider: {fileID: 0}
---- !u!114 &1279483832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279483830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f80bda63185459f96e47351e41b011, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  destroyDistance: 0.3
 --- !u!58 &1279483833
 CircleCollider2D:
   m_ObjectHideFlags: 0
