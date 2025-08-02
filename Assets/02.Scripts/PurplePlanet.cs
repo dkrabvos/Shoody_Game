@@ -5,7 +5,9 @@ using UnityEngine;
 public class PurplePlanet : MonoBehaviour
 {
     public float damageAmount = 25f;
+
     public GameObject electricEffectPrefab;
+
     public float cooldown = 1.5f;
     private float nextDamageTime = 0f;
 
@@ -27,10 +29,13 @@ public class PurplePlanet : MonoBehaviour
         }
     }
 
+
     void PlayParticleEffect(GameObject prefab, Vector3 position, Transform parent = null, float destroyDelay = 1.5f)
+
     {
         Debug.Log("PlayParticleEffect 실행");
         if (prefab == null) return;
+
 
         GameObject fx = Instantiate(prefab, position, Quaternion.identity);
 
@@ -42,4 +47,5 @@ public class PurplePlanet : MonoBehaviour
     }
 
     //스플래쉬 데미지는 이후 Meteo_Damage에서 수정할 예정
+
 }
