@@ -5,28 +5,33 @@ using UnityEngine;
 public class Meteo_Damage : MonoBehaviour
 {
     [Header("Meteorite Settings")]
-    public float hp = 100f; // ¿ÜºÎ¿¡¼­ ¼³Á¤ °¡´É
+    public float hp = 10f;
 
     [Header("Damage Settings")]
     public float damagePerSecond = 10f;
 
     public bool isInSunLight = false;
+
     private float damageTimer = 0f;
 
+    [Header("Special Settings")]
+    public bool isGiant = false;  // ÂœÂ… å«„ê³•ÂŒÂ€ ÂšëŒÂ„Â Â—Ñ‰Â€
+    public ParticleSystem destroyEffect;  // ÂœÂ… ÂŒÂŒæ„¿ ÂëŒ„Â™ÂŠ
 
-    // Start is called before the first frame update
     void Start()
+{
+    if (isGiant)
     {
-        
+        hp = 50f;
+        Debug.Log($"ÂŸÂ’ å«„ê³•ÂŒÂ€ ÂšëŒÂ„Â ÂƒÂÂ„ê¹…Â / ï§£ëŒ€: {hp}");
     }
+}
 
-    // Update is called once per frame
     void Update()
     {
         if (isInSunLight)
         {
             damageTimer += Time.deltaTime;
-
             if (damageTimer >= 1f)
             {
                 TakeDamage(damagePerSecond);
@@ -34,11 +39,22 @@ public class Meteo_Damage : MonoBehaviour
             }
         }
     }
+
     private void TakeDamage(float amount)
     {
         hp -= amount;
-        Debug.Log($"{gameObject.name} took {amount} damage. HP: {hp}");
 
+        if (isGiant) Debug.Log("Â˜Â„Âž ï§£ëŒ€: " + hp);
+        if (hp <= 0f)
+        {
+            Die();
+        }
+    }
+
+    public void TakeDirectDamage(float amount)
+    {
+        hp -= amount;
+        
         if (hp <= 0f)
         {
             Die();
@@ -46,9 +62,26 @@ public class Meteo_Damage : MonoBehaviour
     }
 
     private void Die()
+
+{
+    Debug.Log($"{gameObject.name} destroyed!");
+
+    if (destroyEffect != null)
     {
-        Debug.Log($"{gameObject.name} destroyed!");
-        Destroy(gameObject); // ÇÊ¿ä¿¡ µû¶ó ÀÌÆåÆ®³ª ¾Ö´Ï¸ÞÀÌ¼Ç Ãß°¡ °¡´É
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+    }
+
+    if (isGiant)
+    {
+
+        // ÂŸÂ’ ç§»ëŒ€Â”Â ÂÂ”Â“ã…ºë¦°
+        if (CameraShake.Instance != null)
+            StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
+    
+        
+    }
+    else
+    {
 
         Gauge gm = FindObjectOfType<Gauge>();
         if (gm != null)
@@ -56,7 +89,17 @@ public class Meteo_Damage : MonoBehaviour
             gm.AddGauge();
         }
 
+
     }
+
+    Destroy(gameObject);
+}
+
+void ResetTimeScale()
+{
+    Time.timeScale = 1f;
+}
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -71,7 +114,7 @@ public class Meteo_Damage : MonoBehaviour
         if (other.CompareTag("SunLight"))
         {
             isInSunLight = false;
-            damageTimer = 0f; // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+            damageTimer = 0f;
         }
     }
 
