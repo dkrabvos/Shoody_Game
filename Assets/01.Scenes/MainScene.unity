@@ -630,8 +630,8 @@ GameObject:
   m_Component:
   - component: {fileID: 342206955}
   - component: {fileID: 342206956}
-  - component: {fileID: 342206957}
   - component: {fileID: 342206958}
+  - component: {fileID: 342206959}
   m_Layer: 0
   m_Name: white-dwarf-star
   m_TagString: Untagged
@@ -706,18 +706,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &342206957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342206954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a1963c95f7313148ab782abe8c81f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &342206958
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -753,6 +741,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &342206959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342206954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1905cb8737af2645a44bef8434168d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &374023374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1335406568
 Transform:
   m_ObjectHideFlags: 0
@@ -1915,7 +1915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1428023448
 Transform:
   m_ObjectHideFlags: 0
@@ -2190,7 +2190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1537870738
 Transform:
   m_ObjectHideFlags: 0
@@ -2276,6 +2276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600979270}
   - component: {fileID: 1600979269}
+  - component: {fileID: 1600979271}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -2357,6 +2358,23 @@ Transform:
   - {fileID: 1158358039}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600979271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600979268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8091d32e0c20143a387edf0c13fa0fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  currentHP: 0
+  healthSlider: {fileID: 374023375}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &1664613063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,8 +2385,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1664613064}
   - component: {fileID: 1664613065}
-  - component: {fileID: 1664613066}
   - component: {fileID: 1664613067}
+  - component: {fileID: 1664613068}
   m_Layer: 0
   m_Name: red-planet-sputnik
   m_TagString: Untagged
@@ -2443,21 +2461,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1664613066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664613063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe0cd2773ba72842bf7ba39d568317e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  tickInterval: 0.5
-  damageRange: 2
 --- !u!58 &1664613067
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2493,6 +2496,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &1664613068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664613063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ed5de7f72956f49b5e658fded5fe8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  tickInterval: 0.5
+  range: 7
 --- !u!1 &1768707623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,7 +2576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1857358196
 Transform:
   m_ObjectHideFlags: 0
@@ -2679,7 +2697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2123264051
 Transform:
   m_ObjectHideFlags: 0

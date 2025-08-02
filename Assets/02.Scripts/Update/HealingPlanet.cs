@@ -8,15 +8,8 @@ public class HealingPlanet : MonoBehaviour
     public float healInterval = 2f;     // 회복 주기 (기본 2초)
     public PlayerHealth sunLight;     // 태양 오브젝트 참조
 
-    private float timer;
+    private float timer = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (sunLight == null) return;

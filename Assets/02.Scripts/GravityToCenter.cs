@@ -18,10 +18,8 @@ public class GravityToCenter : MonoBehaviour
 
     [HideInInspector] public bool isFreezable = true;
 
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-
-    public ParticleSystem freezeEffectPrefab; // 얼릴 때 이펙트
+    public SpriteRenderer spriteRenderer;
+    public Color originalColor;
 
     void Start()
     {
@@ -29,17 +27,20 @@ public class GravityToCenter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
+        
         final = Vector2.zero;
 }
 
 
     void Update()
     {
-        if (isInBlackhole)
-        {
-            direction = (final - (Vector2)transform.position).normalized;
-        }
-        else { direction = (Vector2.zero - (Vector2)transform.position).normalized; }
+        Move(isInBlackhole);
+    }
+
+    void Move(bool inInBlackhole)
+    {
+        if (isInBlackhole) direction = (final - (Vector2)transform.position).normalized;
+        else direction = (Vector2.zero - (Vector2)transform.position).normalized;
 
         // 이동
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
@@ -48,13 +49,8 @@ public class GravityToCenter : MonoBehaviour
         if (Vector2.Distance(transform.position, Vector2.zero) < destroyDistance)
         {
             DamagePlayer();
-            Destroy(gameObject);
         }
-
-
     }
-
-    
 
     void DamagePlayer()
     {
@@ -67,36 +63,6 @@ public class GravityToCenter : MonoBehaviour
                 hp.TakeDamage(5);
             }
         }
-    }
-
-    // ❄️ 얼리기 기능
-    public void Freeze(float duration)
-    {
-        StartCoroutine(FreezeCoroutine(duration));
-    }
-
-    private IEnumerator FreezeCoroutine(float duration)
-    {
-        float prevSpeed = moveSpeed;
-        moveSpeed = 0f;
-
-        // 파란색으로 변경
-        if (spriteRenderer != null)
-            spriteRenderer.color = Color.cyan;
-
-        // 파티클 효과
-        if (freezeEffectPrefab != null)
-        {
-            ParticleSystem fx = Instantiate(freezeEffectPrefab, transform.position, Quaternion.identity);
-            fx.transform.SetParent(transform);
-            Destroy(fx.gameObject, 2f);
-        }
-
-        yield return new WaitForSeconds(duration);
-
-        // 원래 상태로 복원
-        moveSpeed = prevSpeed;
-        if (spriteRenderer != null)
-            spriteRenderer.color = originalColor;
+        Destroy(gameObject);
     }
 }
