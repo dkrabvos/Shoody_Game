@@ -5,6 +5,12 @@ using UnityEngine;
 public class IcePlanet : MonoBehaviour
 {
     public float freezeDuration = 2f;
+    public AudioSource sound;
+
+    private void Start()
+    {
+        sound = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,6 +28,7 @@ public class IcePlanet : MonoBehaviour
 
     private IEnumerator FreezeCoroutine(GravityToCenter meteo, float duration)
     {
+        sound.Play();
         float prevSpeed = meteo.moveSpeed;
         meteo.moveSpeed = 0f;
 

@@ -8,6 +8,12 @@ public class FirePlanet : MonoBehaviour
     public float tickInterval = 0.5f;
     public int range = 7;
 
+    AudioSource sound;
+
+    private void Start()
+    {
+        sound = GetComponent<AudioSource>();  
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,6 +34,7 @@ public class FirePlanet : MonoBehaviour
 
     private IEnumerator FireCoroutine(float tick, Meteo_Damage meteo, int damage)
     {
+        sound.Play();
         meteo.TakeDamage(damage);
         yield return new WaitForSeconds(tick);
     }

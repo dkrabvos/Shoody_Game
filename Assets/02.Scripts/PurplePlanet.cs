@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PurplePlanet : MonoBehaviour
 {
-    public float damageAmount = 25f;
+    public float damageAmount = 1f;
 
     public GameObject electricEffectPrefab;
 
     public float cooldown = 1.5f;
     private float nextDamageTime = 0f;
 
+    AudioSource sound;
+
     void Start()
     {
-        
+        sound = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,7 +38,7 @@ public class PurplePlanet : MonoBehaviour
         Debug.Log("PlayParticleEffect 실행");
         if (prefab == null) return;
 
-
+        sound.Play();
         GameObject fx = Instantiate(prefab, position, Quaternion.identity);
 
         if (parent != null)
