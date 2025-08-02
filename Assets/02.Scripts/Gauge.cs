@@ -27,7 +27,7 @@ public class Gauge : MonoBehaviour
     {
         if (gaugeText != null)
         {
-            gaugeText.text = $"Gauge: {gauge}";
+            gaugeText.text = $"Score: {gauge}";
         }
     }
 
