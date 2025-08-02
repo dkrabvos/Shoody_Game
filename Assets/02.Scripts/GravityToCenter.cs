@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GravityToCenter : MonoBehaviour
@@ -9,6 +10,11 @@ public class GravityToCenter : MonoBehaviour
     public float moveSpeed = 2f;
     public float destroyDistance = 0.3f;
 
+    public bool isInBlackhole = false;
+
+    public Vector2 direction;
+
+    public Vector2 final;
 
     [HideInInspector] public bool isFreezable = true;
 
@@ -23,63 +29,32 @@ public class GravityToCenter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
-    }
+        final = Vector2.zero;
+}
 
 
     void Update()
     {
-        // 방향 계산
-        Vector2 direction = (Vector2.zero - (Vector2)transform.position).normalized;
+        if (isInBlackhole)
+        {
+            direction = (final - (Vector2)transform.position).normalized;
+        }
+        else { direction = (Vector2.zero - (Vector2)transform.position).normalized; }
 
         // 이동
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
 
         // 중앙에 도달하면 파괴 및 데미지
         if (Vector2.Distance(transform.position, Vector2.zero) < destroyDistance)
+        {
+            DamagePlayer();
+            Destroy(gameObject);
+        }
 
 
-    [HideInInspector] public bool isFreezable = true;
-
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-
-    public ParticleSystem freezeEffectPrefab; // 얼릴 때 이펙트
-
-
-
-    void Start()
-    {
-        // 스프라이트 색상 저장
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-            originalColor = spriteRenderer.color;
-        blackholePlanet = GetComponent<BlackholePlanet>();
     }
 
-    void Update()
-    {
-        if (blackholePlanet.isInBlackhole)
-
-        {
-            blackholePlanet.PullMeteorites();
-        }
-        else
-        {
-            // 방향 계산
-            Vector2 direction = (Vector2.zero - (Vector2)transform.position).normalized;
-
-            // 이동
-            transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
-
-            // 중앙에 도달하면 파괴 및 데미지
-            if (Vector2.Distance(transform.position, Vector2.zero) < destroyDistance)
-            {
-                DamagePlayer();
-                Destroy(gameObject);
-            }
-        }
-        
-    }
+    
 
     void DamagePlayer()
     {
