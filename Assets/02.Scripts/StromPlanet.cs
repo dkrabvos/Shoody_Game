@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class StromPlanet : MonoBehaviour
 {
-    private void OnTrigger2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GravityToCenter meteor = other.GetComponent<GravityToCenter>();
-        if (meteor != null)
+        if (collision.CompareTag("Meteo"))
         {
-            meteor.moveSpeed -= 1f;
+            GravityToCenter meteo = collision.GetComponent<GravityToCenter>();
+            meteo.moveSpeed -= 1f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Meteo"))
+        {
+            GravityToCenter meteo = collision.GetComponent<GravityToCenter>();
+            meteo.moveSpeed += 1f;
         }
     }
 }

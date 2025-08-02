@@ -23,7 +23,7 @@ public class PurplePlanet : MonoBehaviour
         Meteo_Damage target = other.GetComponent<Meteo_Damage>();
         if (target != null)
         {
-            target.TakeDirectDamage(damageAmount);
+            target.TakeDamage(damageAmount);
             PlayParticleEffect(electricEffectPrefab, other.transform.position, other.transform);
             nextDamageTime = Time.time + cooldown;
         }
