@@ -9,24 +9,21 @@ public class Meteo_Damage : MonoBehaviour
 
     [Header("Damage Settings")]
     public float damagePerSecond = 10f;
-<<<<<<< Updated upstream
 
-    private bool isInSunLight = false;
-=======
     public bool isInSunLight = false;
->>>>>>> Stashed changes
+
     private float damageTimer = 0f;
 
     [Header("Special Settings")]
-    public bool isGiant = false;  // ✅ 거대 운석 여부
-    public ParticleSystem destroyEffect;  // ✅ 파괴 이펙트
+    public bool isGiant = false;  //  嫄곕 댁 щ
+    public ParticleSystem destroyEffect;  //  愿 댄
 
     void Start()
 {
     if (isGiant)
     {
         hp = 50f;
-        Debug.Log($"💪 거대 운석 생성됨 / 체력: {hp}");
+        Debug.Log($" 嫄곕 댁 깅 / 泥대: {hp}");
     }
 }
 
@@ -47,7 +44,7 @@ public class Meteo_Damage : MonoBehaviour
     {
         hp -= amount;
 
-        if (isGiant) Debug.Log("현재 체력: " + hp);
+        if (isGiant) Debug.Log(" 泥대: " + hp);
         if (hp <= 0f)
         {
             Die();
@@ -58,7 +55,6 @@ public class Meteo_Damage : MonoBehaviour
     {
         hp -= amount;
         
-
         if (hp <= 0f)
         {
             Die();
@@ -66,11 +62,7 @@ public class Meteo_Damage : MonoBehaviour
     }
 
     private void Die()
-<<<<<<< Updated upstream
-    {
-        Debug.Log($"{gameObject.name} destroyed!");
-        Destroy(gameObject); // �ʿ信 ���� ����Ʈ�� �ִϸ��̼� �߰� ����
-=======
+
 {
     Debug.Log($"{gameObject.name} destroyed!");
 
@@ -82,7 +74,7 @@ public class Meteo_Damage : MonoBehaviour
     if (isGiant)
     {
 
-        // 💥 카메라 흔들기
+        //  移대 ㅺ린
         if (CameraShake.Instance != null)
             StartCoroutine(CameraShake.Instance.Shake(0.5f, 0.4f));
     
@@ -90,12 +82,14 @@ public class Meteo_Damage : MonoBehaviour
     }
     else
     {
+
         Gauge gm = FindObjectOfType<Gauge>();
         if (gm != null)
         {
             gm.AddGauge();
         }
->>>>>>> Stashed changes
+
+
     }
 
     Destroy(gameObject);
@@ -123,4 +117,17 @@ void ResetTimeScale()
             damageTimer = 0f;
         }
     }
+
+    public void TakeDirectDamage(float amount)
+    {
+        hp -= amount;
+        Debug.Log($"{gameObject.name} cursed! HP: {hp}");
+
+        if (hp <= 0f)
+        {
+            Die();
+        }
+    }
+
+   
 }

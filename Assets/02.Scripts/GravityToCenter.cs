@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GravityToCenter : MonoBehaviour
 {
+    public BlackholePlanet blackholePlanet;
+
     public float moveSpeed = 2f;
     public float destroyDistance = 0.3f;
+
+    public bool isInBlackhole = false;
+
+    public Vector2 direction;
+
+    public Vector2 final;
 
     [HideInInspector] public bool isFreezable = true;
 
@@ -20,12 +29,17 @@ public class GravityToCenter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
-    }
+        final = Vector2.zero;
+}
+
 
     void Update()
     {
-        // 방향 계산
-        Vector2 direction = (Vector2.zero - (Vector2)transform.position).normalized;
+        if (isInBlackhole)
+        {
+            direction = (final - (Vector2)transform.position).normalized;
+        }
+        else { direction = (Vector2.zero - (Vector2)transform.position).normalized; }
 
         // 이동
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
@@ -36,7 +50,11 @@ public class GravityToCenter : MonoBehaviour
             DamagePlayer();
             Destroy(gameObject);
         }
+
+
     }
+
+    
 
     void DamagePlayer()
     {
