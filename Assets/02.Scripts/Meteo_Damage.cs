@@ -125,6 +125,8 @@ void ResetTimeScale()
 
         if (hp <= 0f)
         {
+            
+
             Die();
         }
     }
