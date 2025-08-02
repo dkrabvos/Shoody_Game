@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SunLight
+  - Meteo
   layers:
   - Default
   - TransparentFX
