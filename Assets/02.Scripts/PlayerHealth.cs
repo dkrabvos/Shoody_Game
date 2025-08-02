@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHP = 100;
+
     public float currentHP;
     public Slider healthSlider;
 
     public float maxHealth = 100f;
     public float currentHealth;
+    
     void Start()
     {
         currentHP = maxHP;
@@ -40,9 +42,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+
     public void Heal(float amount)
     {
         currentHP = Mathf.Min(currentHP + amount, maxHP);
         Debug.Log($"[Sun] 회복됨! 현재 체력: {currentHP}");
     }
+
 }
