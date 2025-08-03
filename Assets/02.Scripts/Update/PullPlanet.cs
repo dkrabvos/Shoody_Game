@@ -19,17 +19,8 @@ public class PullPlanet : MonoBehaviour
             meteor.isInBlackhole = true;
             sound.Play();
             meteor.final = this.transform.position;
-            Debug.Log("ºí·¢È¦ ¾È¿¡ µé¾î¿È");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½È¦ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Meteo"))
-        {
-            GravityToCenter meteor = collision.GetComponent<GravityToCenter>();
-            meteor.isInBlackhole = false;
-            Debug.Log("ºí·¢È¦ ¾È¿¡¼­ ³ª°¨");
-        }
-    }
 }

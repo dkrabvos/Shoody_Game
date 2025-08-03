@@ -39,14 +39,14 @@ public class GravityToCenter : MonoBehaviour
 
     void Move(bool inInBlackhole)
     {
-        if (isInBlackhole) direction = (final - (Vector2)transform.position).normalized;
-        else direction = (Vector2.zero - (Vector2)transform.position).normalized;
+        if (!isInBlackhole) final = Vector2.zero;
 
+        direction = (final - (Vector2)transform.position).normalized;
         // 이동
         transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
 
         // 중앙에 도달하면 파괴 및 데미지
-        if (Vector2.Distance(transform.position, Vector2.zero) < destroyDistance)
+        if (Vector2.Distance(transform.position, final) < destroyDistance)
         {
             DamagePlayer();
         }

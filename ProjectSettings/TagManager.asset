@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SunLight
   - Meteo
+  - Blackhole
   layers:
   - Default
   - TransparentFX
