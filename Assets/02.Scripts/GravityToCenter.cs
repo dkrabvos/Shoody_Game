@@ -29,8 +29,7 @@ public class GravityToCenter : MonoBehaviour
             originalColor = spriteRenderer.color;
         
         final = Vector2.zero;
-}
-
+    }
 
     void Update()
     {
