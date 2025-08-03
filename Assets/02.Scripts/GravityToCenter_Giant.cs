@@ -35,7 +35,7 @@ public class GravityToCenter_Giant : MonoBehaviour
 
     void DamagePlayer()
     {
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.Find("Sun");
         if (player != null)
         {
             PlayerHealth hp = player.GetComponent<PlayerHealth>();

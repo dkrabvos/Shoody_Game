@@ -19,7 +19,6 @@ public class PullPlanet : MonoBehaviour
             meteor.isInBlackhole = true;
             sound.Play();
             meteor.final = this.transform.position;
-            Debug.Log("����Ȧ �ȿ� ����");
         }
     }
 

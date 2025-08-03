@@ -13,17 +13,21 @@ public class UIManager : MonoBehaviour
     public List<GameObject> AlreadySelections = new List<GameObject>(3);
     public List<GameObject> positions = new List<GameObject> (3);
 
+    public GameManager gameManager;
+
+    public PlanetSkill skills;
+
     void Start()
     {
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
     }
 
     void Update()
     {
-        //UpdateUI();    
+        UpdateUI();    
     }
-    /*
+    
     void UpdateUI()
     {
         if (currentEx != null)
@@ -32,10 +36,20 @@ public class UIManager : MonoBehaviour
         if (currentLevel != null)
             currentLevel.text = "Level: " + gameManager.currentLevel;
     }
-    */
+    
     public void Selection(int rand_index, int pos_index)
     { 
     selections[rand_index].GetComponent<RectTransform>().position = positions[pos_index].GetComponent<RectTransform>().position;
+        Debug.Log("positions Â÷·Ê: " + pos_index);
     selections[rand_index].SetActive(true); 
+    }
+
+    public void UItoSkill(GameObject ui)
+    {
+        for (int i = 0; i < selections.Count; i++)
+        {
+            if (ui == selections[i])
+                skills.SetSkill(skills.skills[i]);
+        }
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class PointAction : MonoBehaviour
 {
     public PlanetSkill PlanetSkill;
+    public GameObject skillUI;
+    public UIManager uiManager;
 
     Vector2 localscale;
     private void Start()
@@ -26,7 +28,8 @@ public class PointAction : MonoBehaviour
 
     public void Clicked()
     {
-        Debug.Log(this.gameObject);
-        PlanetSkill.SetSkill(this.gameObject);
+        uiManager.UItoSkill(this.gameObject);
+        skillUI.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }

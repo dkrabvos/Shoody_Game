@@ -11,14 +11,11 @@ public class PlanetSkill : MonoBehaviour
 
     private void Start()
     {
-        /*
+        
         for (int i = 1; i <= 6; i++)
         {
             skills.Add(transform.GetChild(i).gameObject);
         }
-        */
-
-        SelectSkill();
     }
 
     public void SelectSkill()
@@ -34,14 +31,15 @@ public class PlanetSkill : MonoBehaviour
             int count = Mathf.Min(3, available.Count);
             while (selectable.Count < count)
             {
-                Debug.Log("selection count: " + selectable.Count);
-                int rand_index = Random.Range(0, available.Count);
 
-                GameObject randSkill = available[rand_index];
+                int rand_index = Random.Range(0, available.Count);
+                Debug.Log("rand_index: " + rand_index);
+
                 manager.Selection(rand_index, selectable.Count);
+                GameObject randSkill = available[rand_index];
+                
                 if (!selectable.Contains(randSkill))
                     selectable.Add(randSkill);
-                
             }
         }
         else
@@ -55,10 +53,7 @@ public class PlanetSkill : MonoBehaviour
                 if (!selectable.Contains(randSkill))
                     selectable.Add(randSkill);
             }
-        }
-
-        
-        
+        } 
     }
 
     public void SetSkill(GameObject skill)
@@ -73,6 +68,7 @@ public class PlanetSkill : MonoBehaviour
         }
         else
         {
+            Debug.Log("스킬 새로 추가");
             currentSkills.Add(skill, level);
             currentSkills[skill] = 1;
             skill.SetActive(true); // 1레벨일 때 처음 등장
